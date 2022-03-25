@@ -1,0 +1,12 @@
+Cómo configurar tu VPS con Ubuntu 20.04 LTS
+
+Definimos "sudo" como: sudo , que es un acrónimo de superuser do o substitute user do, es un comando que ejecuta un prompt elevado sin necesidad de cambiar su identidad. (Son, 2021)
+Definimos "nano" delante o no delante de "sudo" porque "nano" es: GNU nano es un sencillo editor de texto basado en un terminal. (Ubuntu documentation wiki, 2017)
+Definimos "cd" delante de directorios: El comando cd ("change directory") se utiliza para cambiar el directorio de trabajo actual en Linux y otros sistemas operativos tipo Unix. (Linuxize, 2021)
+
+Con las flechas del teclado: arriba, abajo, nos podemos mover siempre entre comando cuando estemos en la consola escribiendo comandos.
+Usaremos dentro del servidor, en Ubuntu, el editor de texto nano.
+
+Vamos a nuestro VPS contratado
+Instalamos Ubuntu 20.04 LTS, que es la versión mas estable con la que programar y configurar nuestro servidor.
+Este servidor cuenta con unas prestaciones de 8 gb de Ram y 4 cores en 200gb de memoria SSD.
