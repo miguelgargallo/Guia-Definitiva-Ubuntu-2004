@@ -1880,3 +1880,15 @@ CREATE TABLE tsigkeys (
 CREATE UNIQUE INDEX namealgoindex ON tsigkeys(name, algorithm);
 
 Exit
+
+
+
+[in progress right now]
+¿Cómo instalar Plesk en nuestro VPS Ubuntu 20.04 LTS?
+
+Ejecutamos para conseguir el instalador:
+wget https://autoinstall.plesk.com/plesk-installer
+
+Permitimos execution mode:
+chmod +x ./plesk-installer
+
