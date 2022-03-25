@@ -1,0 +1,43 @@
+¿Cómo añadir mas ram a nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ahora añadiremos mas ram, sí. Este tipo de VPS, por lo general suelen venir con poca ram, 1GB, 2GB o 4GB, incluso si crees que te vas a quedar corto de ram con 8gb, podemos añadir más ram, gracias a nuestra memoria SSD.
+Para ello debemos ejecutar:
+
+fallocate -l 16G /ramr
+La consola no devolverá respuesta, seguimos escribiendo y dando a enter:
+
+chmod 600 /ramr
+La consola no devolverá respuesta, seguimos escribiendo y dando a enter:
+
+mkswap /ramr  && sudo swapon /ramr
+
+La consola responde:
+Setting up swapspace version 1, size = 16 GiB (17179865088 bytes)
+no label, UUID=abb4d923-02b8-4f59-a391-d0b82bbed1aa
+
+Editamos el archivo fstab para añadir la ram.
+nano /etc/fstab
+
+Esto se añade al final del documento:
+/ramr swap swap defaults 0 0
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+Mostramos las rams que hay:
+swapon --show
+
+La consola responde:
+NAME  TYPE SIZE USED PRIO
+/ramr file  16G   0B   -2
+
+Liberamos la ram:
+free -h
+
+La consola responde:
+              total        used        free      shared  buff/cache   available
+Mem:          7.8Gi       411Mi       6.4Gi       4.0Mi       947Mi       7.1Gi
+Swap:          15Gi          0B        15Gi
+
+Reiniciamos
+reboot
