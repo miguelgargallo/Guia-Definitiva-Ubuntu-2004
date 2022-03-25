@@ -1,0 +1,132 @@
+¿Cómo cambiar el puerto de acceso ssh para protegernos de ataques a nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ahora vamos al archivo de configuración de sshd, para así modificar el puerto de acceso:
+nano /etc/ssh/sshd_config
+#Port 22
+Lo activamos (quitando la hastag o almoadilla)
+Y cambiamos el 22 por 25472
+
+Port 25472
+
+Que es en definitva un puerto que hemos abierto antes.
+
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+Reiniciamos el servicio de ssh
+service ssh restart
+
+Y reiniciamos el servidor:
+reboot
+
+A estas alturas, la consola nos quedaría tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+root@nombredelamaquina:~# ufw allow ssh
+Rules updated
+Rules updated (v6)
+root@nombredelamaquina:~# ufw allow 25472
+Rules updated
+Rules updated (v6)
+root@nombredelamaquina:~# ufw allow 53
+Rules updated
+Rules updated (v6)
+root@nombredelamaquina:~# ufw allow http
+Rules updated
+Rules updated (v6)
+root@nombredelamaquina:~# ufw allow https
+Rules updated
+Rules updated (v6)
+root@nombredelamaquina:~# ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+root@nombredelamaquina:~# ufw status numbered
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22/tcp                     ALLOW IN    Anywhere
+[ 2] 25472                       ALLOW IN    Anywhere
+[ 3] 53                         ALLOW IN    Anywhere
+[ 4] 80/tcp                     ALLOW IN    Anywhere
+[ 5] 443/tcp                    ALLOW IN    Anywhere
+[ 6] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 7] 25472 (v6)                  ALLOW IN    Anywhere (v6)
+[ 8] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 9] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[10] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+root@nombredelamaquina:~# ufw delete 1
+Deleting:
+ allow 22/tcp
+Proceed with operation (y|n)? y
+Rule deleted
+root@nombredelamaquina:~# ufw status numbered
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 25472                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 6] 25472 (v6)                  ALLOW IN    Anywhere (v6)
+[ 7] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 8] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 9] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+root@nombredelamaquina:~# Status: active
+     To                         Action      From
+     --                         ------      ----
+[ 1] 25472                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 6] 25472 (v6)                  ALLOW IN    Anywhere (v6)
+[ 7] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 8] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 9] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+root@nombredelamaquina:~# ufw status numbered
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 25472                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 6] 25472 (v6)                  ALLOW IN    Anywhere (v6)
+[ 7] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 8] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 9] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+root@nombredelamaquina:~# ufw delete 5
+Deleting:
+ allow 22/tcp
+Proceed with operation (y|n)? y
+Rule deleted (v6)
+root@nombredelamaquina:~# ufw status numbered
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 25472                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 25472 (v6)                  ALLOW IN    Anywhere (v6)
+[ 6] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+
+root@nombredelamaquina:~# nano /etc/ssh/sshd_config
+root@nombredelamaquina:~# service ssh restart
+root@nombredelamaquina:~# reboot
+root@nombredelamaquina:~# Connection to 123.456.789.10 closed by remote host.
+Connection to 123.456.789.10 closed.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
