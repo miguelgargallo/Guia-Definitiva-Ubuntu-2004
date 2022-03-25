@@ -1886,9 +1886,8 @@ Exit
 [in progress right now]
 ¿Cómo instalar Plesk en nuestro VPS Ubuntu 20.04 LTS?
 
-Ejecutamos para conseguir el instalador:
-wget https://autoinstall.plesk.com/plesk-installer
+Instalamos wget:
 
-Permitimos execution mode:
-chmod +x ./plesk-installer
+apt-get install wget
 
+Instalamos el 
