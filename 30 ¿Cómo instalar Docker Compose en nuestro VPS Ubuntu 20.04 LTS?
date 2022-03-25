@@ -1,0 +1,30 @@
+¿Cómo instalar Docker Compose en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ejecutamos:
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+La consola nos respodnerá:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   664  100   664    0     0  13551      0 --:--:-- --:--:-- --:--:-- 13551
+100 12.1M  100 12.1M    0     0  16.5M      0 --:--:-- --:--:-- --:--:-- 23.4M
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Ejecutamos:
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+Si es correcto, la consola no devolverá nada.
+
+Comprobamos la versión:
+
+docker-compose --version
+
+La consola respodnerá:
+
+docker-compose version 1.29.2, build 5becea4c
