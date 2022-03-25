@@ -68,7 +68,7 @@ sudo nano /etc/ssh/sshd_config
 Y nos encontrarmos con este archivo:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   GNU nano 4.8                           /etc/ssh/sshd_config
-#       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
+|#       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
 
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
