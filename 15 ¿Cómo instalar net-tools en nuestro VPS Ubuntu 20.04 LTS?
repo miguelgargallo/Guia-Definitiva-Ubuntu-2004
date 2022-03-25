@@ -1,0 +1,5 @@
+¿Cómo instalar net-tools en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+apt install net-tools
