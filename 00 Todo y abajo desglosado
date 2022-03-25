@@ -45,6 +45,8 @@ clean
 
 Cambiamos la contraseña de root y admin por dos contraseñas totalmente seguras.
 admin@nombredelamaquina:~$
+
+Ejecutamos:
 sudo passwd root
 
 New password:
@@ -52,6 +54,8 @@ Retype new password:
 passwd: password updated successfully
 
 admin@nombredelamaquina:~$
+
+Ejecutamos:
 sudo passwd admin
 
 New password:
