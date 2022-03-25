@@ -1,0 +1,32 @@
+¿Cómo actualizar Docker Engine en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ejecutamos:
+
+curl -fsSL https://get.docker.com -o get-docker.sh
+
+Si es correcto, la consola no devolverá nada.
+
+Ejecutamos:
+
+sudo sh get-docker.sh
+
+La consola nos responde:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Executing docker install script, commit: 93d2499759296ac1f9c510605fef85052a2c32be
+Warning: the "docker" command appears to already exist on this system.
+
+If you already have Docker installed, this script can cause trouble, which is
+why we're displaying this warning and provide the opportunity to cancel the
+installation.
+
+If you installed the current Docker package using this script and are using it
+again to update Docker, you can safely ignore this message.
+
+You may press Ctrl+C now to abort this script.
++ sleep 20
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Presionamos Control+C para salir, tenemos la última versión.
