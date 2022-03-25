@@ -36,13 +36,13 @@ Cómo configurar tu VPS con Ubuntu 20.04 LTS;
 
 ¿Cómo instalar PowerDNS siguiendo la guía de Rithvik Vibhu pero con versión 4.7 en nuestro VPS Ubuntu 20.04 LTS?
 
-¿Cómo creo una zona para nuestra extensión TLDs de Handshake en nuestro VPS Ubuntu 20.04 LTS?
+¿Cómo creo una zona para nuestra extensión TLDs de Handshake siguiendo la guía de Rithvik Vibhu en nuestro VPS Ubuntu 20.04 LTS?
 
-¿Cómo cómo apunto mi TLDs de Handshake a nuestro VPS Ubuntu 20.04 LTS?
+¿Cómo cómo apunto mi TLDs de Handshake siguiendo la guía de Rithvik Vibhu a nuestro VPS Ubuntu 20.04 LTS?
 
-¿Cómo configuro el webserver en nuestro VPS Ubuntu 20.04 LTS?
+¿Cómo configuro el webserver siguiendo la guía de Rithvik Vibhu en nuestro VPS Ubuntu 20.04 LTS?
 
-¿Cómo añado el canado verde DANE en nuestro VPS Ubuntu 20.04 LTS?
+¿Cómo añado el canado verde DANE siguiendo la guía de Rithvik Vibhu en nuestro VPS Ubuntu 20.04 LTS?
 
 ¿Cómo instalar Docker en nuestro VPS Ubuntu 20.04 LTS?
 
