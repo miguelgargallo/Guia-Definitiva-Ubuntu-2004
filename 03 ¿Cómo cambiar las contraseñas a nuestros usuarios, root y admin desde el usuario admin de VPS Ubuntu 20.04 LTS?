@@ -3,13 +3,19 @@
 
 
 Cambiamos la contraseña de root y admin por dos contraseñas totalmente seguras.
-admin@nombredelamaquina:~$ sudo passwd root
+admin@nombredelamaquina:~$
+
+Ejecutamos:
+sudo passwd root
 
 New password:
 Retype new password:
 passwd: password updated successfully
 
-admin@nombredelamaquina:~$ sudo passwd admin
+admin@nombredelamaquina:~$
+
+Ejecutamos:
+sudo passwd admin
 
 New password:
 Retype new password:
