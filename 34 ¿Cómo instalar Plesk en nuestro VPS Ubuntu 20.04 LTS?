@@ -1,0 +1,30 @@
+¿Cómo instalar Plesk en nuestro VPS Ubuntu 20.04 LTS?
+
+Instalamos wget:
+
+apt-get install wget
+
+Descargamos el instalador:
+
+wget https://autoinstall.plesk.com/plesk-installer
+
+Le añadimos permisos:
+
+chmod +x plesk-installer
+
+Iniciamos el instalador:
+
+./plesk-installer --web-interface
+
+
+https://123.456.789.10:8447 or host https://tupaginaweb.com:8447
+
+Acceda a la interfaz web, utilice el usuario y la contraseña "root".
+
+Seleccione y pulse "Instalar o actualizar el producto"
+
+Elija la última versión estable del producto y pulse "Continuar"
+
+Seleccione uno de los tipos de instalación, que identificará la lista de paquetes. O simplemente puede activar la "Vista previa de la selección de componentes" y elegir todos los componentes que desee. Pulse "Continuar" para proceder a la instalación.
+
+Verá la salida de la consola dentro de la interfaz web. Espere hasta que el proceso de instalación termine.
