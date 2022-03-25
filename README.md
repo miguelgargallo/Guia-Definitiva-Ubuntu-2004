@@ -1,5 +1,7 @@
 Configurar Ubuntu 20.04 LTS Handshake spanish guia Rithvik-Vibhu
 
+![image](https://user-images.githubusercontent.com/5947268/160123397-94ef6f30-3893-4cd8-8dd6-c828e5912ed1.png)
+
 ¿Cómo acceder a nuestro VPS Ubuntu 20.04 LTS?
 
 ¿Cómo cambiar las contraseñas a nuestros usuarios, root y admin desde el usuario admin de VPS Ubuntu 20.04 LTS?
