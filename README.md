@@ -63,5 +63,3 @@ Cómo configurar tu VPS con Ubuntu 20.04 LTS;
 ¿Cómo instalar PowerDNS-Admin con Docker en nuestro VPS Ubuntu 20.04 LTS?
 
 ¿Qué pasa si me pide autorización en nuestro VPS Ubuntu 20.04 LTS?
-
-¿Como programar las tablas de PowerDNS en nuestro VPS Ubuntu 20.04 LTS?
