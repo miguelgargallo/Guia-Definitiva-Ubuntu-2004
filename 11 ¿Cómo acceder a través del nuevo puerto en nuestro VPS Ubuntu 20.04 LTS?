@@ -1,0 +1,6 @@
+¿Cómo acceder a través del nuevo puerto en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Para acceder, ahora deberemos hacerlo desde el puerto designado anteriormente, con la flag -p:
+ssh -p 25472 root@123.456.789.10
