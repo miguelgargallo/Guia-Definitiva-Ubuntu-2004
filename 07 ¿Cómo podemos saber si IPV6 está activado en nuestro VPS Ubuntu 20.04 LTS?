@@ -3,7 +3,7 @@
 Ejecutamos
 
 sudo nano /etc/default/ufw
-
+ 
 Y nos saldrá un archivo tal que así:
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
