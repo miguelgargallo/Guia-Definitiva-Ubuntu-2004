@@ -1,0 +1,58 @@
+¿Cómo creo una zona para nuestra extensión TLDs de Handshake en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Creo una zona vacía:
+
+sudo -u pdns pdnsutil create-zone cil ns1.cil
+
+Activo el DNSSEC:
+
+sudo -u pdns pdnsutil secure-zone cil
+
+Añado un record TXT:
+
+sudo -u pdns pdnsutil add-record cil. @ TXT '"first-record!"'
+
+Y lo comprobamos:
+
+dig @127.0.0.1 cil TXT +dnssec
+
+
+
+Con todo esto la consola quedará tal que así:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+next@server:/etc/powerdns/pdns.d$ sudo -u pdns pdnsutil create-zone cil ns1.cil
+Mar 22 17:59:01 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+Creating empty zone 'cil'
+Also adding one NS record
+next@server:/etc/powerdns/pdns.d$ sudo -u pdns pdnsutil secure-zone cil
+Mar 22 17:59:05 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+Securing zone with default key size
+Adding CSK (257) with algorithm ecdsa256
+Zone cil secured
+Adding NSEC ordering information for zone 'cil', 1 updates
+next@server:/etc/powerdns/pdns.d$ sudo -u pdns pdnsutil add-record cil. @ TXT '"first-record!"'
+Mar 22 17:59:08 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+New rrset:
+cil. 3600 IN TXT "first-record!"
+next@server:/etc/powerdns/pdns.d$ dig @127.0.0.1 cil TXT +dnssec
+
+; <<>> DiG 9.16.1-Ubuntu <<>> @127.0.0.1 cil TXT +dnssec
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: REFUSED, id: 60344
+;; flags: qr rd; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags: do; udp: 1232
+;; QUESTION SECTION:
+;cil.                           IN      TXT
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Tue Mar 22 17:59:15 CET 2022
+;; MSG SIZE  rcvd: 32
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
