@@ -1,0 +1,8 @@
+¿Cómo dar privilegios y añadir al grupo cualquier usuario de nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+usermod -aG sudo newuser
+
+adduser next
+La consola no devolverá respuesta, por lo tanto el procedimiento ha sido el correcto.
