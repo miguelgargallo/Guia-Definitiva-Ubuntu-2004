@@ -1,4 +1,4 @@
-Cómo configurar tu VPS con Ubuntu 20.04 LTS;
+Configurar Ubuntu 20.04 LTS Handshake spanish guia Rithvik-Vibhu
 
 ¿Cómo acceder a nuestro VPS Ubuntu 20.04 LTS?
 
