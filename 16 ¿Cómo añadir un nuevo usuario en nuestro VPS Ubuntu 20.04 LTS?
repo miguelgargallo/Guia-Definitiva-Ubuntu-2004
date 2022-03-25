@@ -3,3 +3,44 @@
 
 
 adduser newuser
+
+La consola nos devuelve el siguiente questionario rápido:
+
+root@server:~# adduser newuser
+Adding user `newuser' ...
+Adding new group `newuser' (1001) ...
+Adding new user `newuser' (1001) with group `newuser' ...
+Creating home directory `/home/newuser' ...
+Copying files from `/etc/skel' ...
+
+Escribimos una contraseña:
+New password:
+
+Repetimos la contraseña:
+Retype new password:
+passwd: password updated successfully
+
+La consola nos dice:
+Changing the user information for next
+Enter the new value, or press ENTER for the default
+
+Escribe o simplemente dale a enter para continuar (en esta guía se da enter y no se coloca nada.)
+        Full Name []:
+		
+Se da enter y se deja vacío, esperando a la siguiente pregunta del cuestionario:
+        Room Number []:
+
+Se da enter y se deja vacío, esperando a la siguiente pregunta del cuestionario:
+        Work Phone []:
+
+Se da enter y se deja vacío, esperando a la siguiente pregunta del cuestionario:
+        Home Phone []:
+
+Se da enter y se deja vacío, esperando a la siguiente pregunta del cuestionario:
+        Other []:
+
+Se da enter y se deja vacío, esperando a la siguiente pregunta del cuestionario:
+Is the information correct? [Y/n]
+
+Escribimos "y" y le damos a enter:
+Y
