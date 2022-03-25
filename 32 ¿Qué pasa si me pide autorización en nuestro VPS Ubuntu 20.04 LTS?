@@ -1,0 +1,17 @@
+¿Qué pasa si me pide autorización en nuestro VPS Ubuntu 20.04 LTS?
+
+next@server:~$ systemctl restart pdns.service
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to restart 'pdns.service'.
+Multiple identities can be used for authentication:
+ 1.  Ubuntu (admin)
+ 2.  ,,, (next)
+
+Le das a Control+C, sales de ese engaño.
+Choose identity to authenticate as (1-2): ^C
+
+Nos vamos a root.
+next@server:~$ sudo -i
+
+Y entonces ejecutamos sin errores.
+root@server:~# systemctl restart pdns.service
