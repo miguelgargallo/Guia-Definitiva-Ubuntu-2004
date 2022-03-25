@@ -1,0 +1,56 @@
+¿Cómo configurar DNS Server, por Rithvik Vibhu, nuestro VPS Ubuntu 20.04 LTS?
+
+Logeamos con el usuario nuevo, y actuamos siempre con "sudo"
+$ ssh -p 2083 next@207.180.198.58
+
+Primero comprobamos la actividad del puerto 53, escrbiendo este comando.
+
+sudo lsof -i :53
+
+Y tras pedirnos la contraseña, la consola nos devolverá esta respuesta.
+COMMAND   PID            USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+systemd-r 713 systemd-resolve   12u  IPv4  17878      0t0  UDP localhost:domain
+systemd-r 713 systemd-resolve   13u  IPv4  17879      0t0  TCP localhost:domain (LISTEN)
+
+Editamos el archivo, /etc/systemd/resolved.conf
+
+sudo nano /etc/systemd/resolved.conf
+
+
+Este es el archivo que nos dará la consola:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  GNU nano 4.8                                          /etc/systemd/resolved.conf
+
+[Resolve]
+#DNS=
+#FallbackDNS=
+#Domains=
+#LLMNR=no
+#MulticastDNS=no
+#DNSSEC=no
+#DNSOverTLS=no
+#Cache=no-negative
+#DNSStubListener=yes
+#ReadEtcHosts=yes
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Y tenemos que añadir:
+DNS=1.1.1.1
+DNSStubListener=no
+
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+Sincronizamos el archivo para usar el systemd's resolv config.
+
+sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+
+Reiniciamos
+sudo reboot
+
+Entramos con el mismo usuario de antes y ejecutamos:
+
+sudo lsof -i :53
+
+Si está todo correcto, la consola nos devolverá:
+Literalmente nada. Eso significará que podemos proseguir.
