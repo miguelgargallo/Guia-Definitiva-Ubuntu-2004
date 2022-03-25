@@ -6,7 +6,7 @@ Cambiar el nombre del host
 Por defecto, el hostname será el nombre de la máquina de VPS que hayamos contratado, en este caso
 nombredelamaquina
 Al cambiar el hostname, podremos asignar tanto a la IP como la IPV6.
-En nuestro caso "server" para tanto a la IP como a IPV6 server.superdata.dev bajo el dominio "superdata.dev" a la máquina.
+En nuestro caso "nuevonombredelamaquina" para tanto a la IP como a IPV6 nombredelamaquina.nuestro.dominio bajo el dominio "nuestro.dominio" a la máquina.
 Para poder hacer esto, debemos de tener un dominio web previo.
 [Mirar programa de partners]
 
@@ -36,24 +36,24 @@ ff02::2 ip6-allrouters
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Reemplazamos
-127.0.1.1 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+127.0.1.1 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 De la primera linea por:
 127.0.1.1 server.superdata.dev server
 Y añadimos al final del documento:
-123.456.789.10 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+123.456.789.10 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 
 De tal forma que nos quede así
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   GNU nano 4.8                                /etc/hosts
-127.0.1.1 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+127.0.1.1 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
 ::1 localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-123.456.789.10 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+123.456.789.10 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Si nuestro servicio vps cuenta con plantillas en la nube, no se va a cambiar nada de lo que hagamos al reiniciar, es por esto que debemos comprobar si existe ese directorio.
@@ -76,14 +76,14 @@ ff02::2 ip6-allrouters
 Y nos debe de quedar así:
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-127.0.1.1 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+127.0.1.1 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
 ::1 localhost ip6-localhost ip6-loopback
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
-123.456.789.10 nuevonombredelamaquina.webvpscontratado.com nuevonombredelamaquina
+123.456.789.10 nuevonombredelamaquina.nuestro.dominio nuevonombredelamaquina
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
