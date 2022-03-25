@@ -1,0 +1,84 @@
+¿Cómo instalar Command-line completion para Docker Compose en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+sudo curl \
+    -L https://raw.githubusercontent.com/docker/compose/1.29.2/contrib/completion/bash/docker-compose \
+    -o /etc/bash_completion.d/docker-compose
+
+La consola nos respodnerá:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 13500  100 13500    0     0  69230      0 --:--:-- --:--:-- --:--:-- 69587
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Recargamos la terminal:
+
+source ~/.bashrc
+
+Si es correcto, la consola no devolverá nada.
+
+
+
+¿Cómo instalar PowerDNS-Admin con Docker en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ejecutamos:
+
+docker run -d \
+    -e SECRET_KEY='a-very-secret-key' \
+    -v pda-data:/data \
+    -p 9191:80 \
+    ngoduykhanh/powerdns-admin:latest
+
+La consola nos respodnerá:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Unable to find image 'ngoduykhanh/powerdns-admin:latest' locally
+latest: Pulling from ngoduykhanh/powerdns-admin
+5758d4e389a3: Pull complete
+2c40eb35ff36: Pull complete
+b218723011f1: Pull complete
+41c45f2f26c3: Pull complete
+7f33384f5962: Pull complete
+3e4abb6e835a: Pull complete
+4b675c72e18e: Pull complete
+Digest: sha256:67886c94cf627b351269313ee3564d8bc9d4a0cef6986a15ba5c34459f1aee16
+Status: Downloaded newer image for ngoduykhanh/powerdns-admin:latest
+d7f7192dfe830e78737e4ac77526b8e440309cf843e5254d1d147d690b0ded61
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Cojemos nuestro buscador y ponemos nuestra ip seguida de dos puntos con el puerto deseado, en este caso, 9191:
+
+123.456.789.10:9191
+
+Creamos un usuario.
+
+Veremos un recuadro rojo, colocamos los datos correctos:
+
+Vamos al panel de PowerDNS-Admin y en el sidebar veremos un sitio que pone: "API Keys"
+
+Generamos una, la copiamos y la pegamos en API-Key en el paso siguiente:
+
+Vamos a cd /etc/powerdns/pdns.sqlite3
+
+Y pegamos:
+
+webserver-port=8081
+api=yes
+api-key=LAPEGAMOSAQUI
+
+dkxORDZ1b1JXWDd0WnM3
+
+En el recuadro rojo de PowerDNS-Admin ponemos:
+
+PDNS API URL http://pdns:8081/
+PDNS API KEY LAPEGAMOSAQUI
+PDNS VERSION 4.7.0
+
+9jA6iTVns/ZXiMNk5L2OHptiiz2tJs8O0Fu3+A8HI5s=
+/var/lib/powerdns/pdns.sqlite3
+4.7.0-alpha1
