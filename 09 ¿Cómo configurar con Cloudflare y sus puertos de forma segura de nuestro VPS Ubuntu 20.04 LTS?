@@ -1,0 +1,142 @@
+¿Cómo configurar con Cloudflare y sus puertos de forma segura de nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ahora configuraremos los puertos, para tener las entradas y salidas óptimas.
+Segun speedguide net, no hay nada asignado entre los puertos 2038-25575, lo que pretendemos es evitar ataques automáticos en nuestro servidor, es por esto que cambiaremo el puerto 22 y 22/tcp por un puerto aleatorio, para poder acceder por ssh de forma mas segura y así reducir el número de probabilidades de ser atacado.
+Escogeremos un puerto aleatorio entre en el rango 2038-25575, por ejemplo: 2038, evitad a toda costa cojer el puerto 25565, porque si queréis montar un servidor de Minecraft, es el que usa MySQL Standard port Minecraft Dedicated Server (IANA official. (Speed Guide, Inc, 2009)
+Aquí abriremos un puerto que es para configurar nuestra TLD de Handshake a través de la guía de La Guía HNS + PowerDNS + Nginx + DANE - Introduction de htools.work de Rithvik Vibhu en español. (Vibhu, 2021)
+Así que si estás aquí solo para instalar Ubuntu 20.04 LTS, no abras el puerto 53, te darás cuenta de que es cuando lleguemos, no te preocupes.
+
+Comenzamos a escribir:
+ufw allow ssh
+
+La consola nos devuelve esta respuesta que deseamos:
+Rules updated
+Rules updated (v6)
+
+ufw allow 2038
+
+La consola nos devuelve esta respuesta que deseamos:
+Rules updated
+Rules updated (v6)
+
+La consola nos devuelve esta respuesta que deseamos:
+ufw allow 53
+Rules updated
+Rules updated (v6)
+
+La consola nos devuelve esta respuesta que deseamos:
+ufw allow http
+Rules updated
+Rules updated (v6)
+
+La consola nos devuelve esta respuesta que deseamos:
+ufw allow https
+Rules updated
+Rules updated (v6)
+
+La consola nos devuelve esta respuesta que deseamos:
+ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+
+Escribimos "y" y le damos a enter.
+
+La consola nos devuelve esta respuesta que deseamos:
+Firewall is active and enabled on system startup
+
+Buscamos por numeración los puertos actuales:
+ufw status numbered
+
+La consola nos responderá tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22/tcp                     ALLOW IN    Anywhere
+[ 2] 2038                       ALLOW IN    Anywhere
+[ 3] 53                         ALLOW IN    Anywhere
+[ 4] 80/tcp                     ALLOW IN    Anywhere
+[ 5] 443/tcp                    ALLOW IN    Anywhere
+[ 6] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 7] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 8] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 9] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[10] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Ahora lo que vamos a hacer es borrar el puerto 22 porque este es vulnerable a ataques.
+Cómo podéis ver, el puerto 22 está en la lista, es el puerto 1, el primer puerto que hay que borrar.
+
+Por lo tanto ejecutaremos:
+ufw delete 1
+
+La consola nos devuelve esta respuesta que deseamos:
+Deleting:
+ allow 22/tcp
+Proceed with operation (y|n)?
+
+Escribimos "y" y le damos a enter.
+y
+
+La consola nos devuelve esta respuesta que deseamos:
+Rule deleted
+
+Volvemos a pedir la lista de puertos cono el comando ejecutado anteriormente:
+ufw status numbered
+
+La consola nos responderá tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 2038                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 6] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 7] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 8] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 9] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Cómo podéis ver, el puerto 22 sigue en la lista, es el puerto 5, el segundo y último puerto que hay que borrar.
+
+Por lo tanto ejecutaremos:
+ufw delete 5
+
+La consola nos devuelve esta respuesta que deseamos:
+Deleting:
+ allow 22/tcp
+Proceed with operation (y|n)?
+
+Escribimos "y" y le damos a enter.
+y
+
+La consola nos devuelve esta respuesta que deseamos:
+Rule deleted (v6)
+
+Volvemos a pedir la lista de puertos cono el comando ejecutado anteriormente:
+ufw status numbered
+
+La consola nos responderá tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 2038                       ALLOW IN    Anywhere
+[ 2] 53                         ALLOW IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 443/tcp                    ALLOW IN    Anywhere
+[ 5] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 6] 53 (v6)                    ALLOW IN    Anywhere (v6)
+[ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
+[ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
