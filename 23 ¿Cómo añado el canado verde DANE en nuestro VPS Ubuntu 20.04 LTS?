@@ -1,0 +1,91 @@
+¿Cómo añado el canado verde DANE en nuestro VPS Ubuntu 20.04 LTS?
+
+Comenzamos a copiar y a pegar tranquilamente linea a linea:
+
+openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes \
+  -keyout cert.key -out cert.crt -extensions ext  -config \
+  <(echo "[req]";
+    echo distinguished_name=req;
+    echo "[ext]";
+    echo "keyUsage=critical,digitalSignature,keyEncipherment";
+    echo "extendedKeyUsage=serverAuth";
+    echo "basicConstraints=critical,CA:FALSE";
+    echo "subjectAltName=DNS:cil,DNS:*.cil";
+    ) -subj "/CN=*.cil"
+
+La consola responde: "writing new private key to 'cert.key'" Todo es correcto.
+
+Ejecutamos:
+
+echo -n "3 1 1 " && openssl x509 -in cert.crt -pubkey -noout | openssl pkey -pubin -outform der | openssl dgst -sha256 -binary | xxd  -p -u -c 32
+
+Nos responderá con un registro: LO GUARDAMOS PARA EL FUTURO!
+
+3 1 1 A21411F3E824461799400A0B8ECCFDE54F5E1ABDA75CFF78C74484F2E5091135
+
+Movemos de lugar los dos archivos generados:
+
+sudo mv cert.key /etc/ssl/cil.key
+
+Si es correcto, la consola no devolverá nada.
+
+sudo mv cert.crt /etc/ssl/cil.crt
+
+Si es correcto, la consola no devolverá nada.
+
+Añadimos unas lineas a este archivo que inicialmente creamos en la parte anterior de la guía.
+
+sudo nano /etc/nginx/sites-available/cil
+
+Añadimos estas lineas antes del último cierre de código.
+
+  listen 443 ssl;
+  ssl_certificate /etc/ssl/cil.crt;
+  ssl_certificate_key /etc/ssl/cil.key;
+
+Con todo esto el archivo quedará tal que así:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  GNU nano 4.8                                    /etc/nginx/sites-available/cil                                    Modified
+server {
+  listen 80;
+  listen [::]:80;
+  root /var/www/cil;
+  index index.html;
+  server_name cil;
+  location / {
+    try_files $uri $uri/ =404;
+  }
+  listen 443 ssl;
+  ssl_certificate /etc/ssl/cil.crt;
+  ssl_certificate_key /etc/ssl/cil.key;
+}
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+Reiniciamos nginx:
+
+sudo nginx -t && sudo systemctl restart nginx
+
+Añadimos el record TLSA con el registro aquel que hemos guardado!
+
+sudo -u pdns pdnsutil add-record cil. _443._tcp TLSA '3 1 1 A21411F3E824461799400A0B8ECCFDE54F5E1ABDA75CFF78C74484F2E5091135'
+
+La consola nos responde:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Mar 22 18:23:07 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+New rrset:
+_443._tcp.cil. 3600 IN TLSA 3 1 1 a21411f3e824461799400a0b8eccfde54f5e1abda75cff78c74484f2e5091135
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Llamamos para rectificar la zona:
+
+sudo -u pdns pdnsutil rectify-zone cil
+
+La consola nos responde:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Mar 22 18:24:04 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+Adding NSEC ordering information for zone 'cil', 3 updates
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
