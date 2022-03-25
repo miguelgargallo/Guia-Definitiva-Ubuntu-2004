@@ -1,0 +1,18 @@
+¿Cómo ejecutar Docker en el inicio de sesión en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ejecutamos:
+
+sudo systemctl enable docker.service
+
+La consola nos responde:
+
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
+
+Ejectuamos:
+
+sudo systemctl enable containerd.service
+
+Si es correcto, la consola no devolverá nada.
