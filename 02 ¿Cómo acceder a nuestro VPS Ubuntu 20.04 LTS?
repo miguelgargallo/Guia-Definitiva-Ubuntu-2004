@@ -1,0 +1,22 @@
+¿Cómo acceder a nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Comenzamos la configuración de Ubuntu 20.04 LTS y nos encontramos con el acceso ssh, al ser la edición servidor, tendremos a nuestra disposición una consola de comandos.
+Cojemos Git Bash en nuestro PC y comenzamos a escribir el acceso a Admin.
+ssh admin@123.456.789.10
+
+The authenticity of host '123.456.789.10 (123.456.789.10)' can't be established.
+ED25519 key fingerprint is SHA256:KvTPDpjh6cPhCs7LAGvxwd4Awyffuwqrxiw8roeIMTY.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+yes
+
+Warning: Permanently added '123.456.789.10' (XXXXXXX) to the list of known hosts.
+admin@123.456.789.10's password:
+
+nuestracontroseña
+Entramos en el servidor y nos pone toda la información.
+limpiamos la pantalla con "clean"
+clean
