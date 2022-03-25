@@ -1,0 +1,111 @@
+¿Cómo habilitamos poder entrar con root a nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Añadimos el acceso con root para ssh desde admin:
+
+sudo nano /etc/ssh/sshd_config
+
+Y nos encontrarmos con este archivo:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  GNU nano 4.8                           /etc/ssh/sshd_config
+|#       $OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
+
+# This is the sshd server system-wide configuration file.  See
+# sshd_config(5) for more information.
+
+# This sshd was compiled with PATH=/usr/bin:/bin:/usr/sbin:/sbin
+
+# The strategy used for options in the default sshd_config shipped with
+# OpenSSH is to specify options with their default value where
+# possible, but leave them commented.  Uncommented options override the
+# default value.
+
+Include /etc/ssh/sshd_config.d/*.conf
+
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#ListenAddress ::
+
+#HostKey /etc/ssh/ssh_host_rsa_key
+#HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key
+
+# Ciphers and keying
+#RekeyLimit default none
+
+# Logging
+#SyslogFacility AUTH
+#LogLevel INFO
+
+# Authentication:
+
+#LoginGraceTime 2m
+#PermitRootLogin prohibit-password
+#StrictModes yes
+#MaxAuthTries 6
+#MaxSessions 10
+
+#PubkeyAuthentication yes
+
+# Expect .ssh/authorized_keys2 to be disregarded by default in future.
+#AuthorizedKeysFile     .ssh/authorized_keys .ssh/authorized_keys2
+
+#AuthorizedPrincipalsFile none
+
+#AuthorizedKeysCommand none
+#AuthorizedKeysCommandUser nobody
+
+# For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
+#HostbasedAuthentication no
+# Change to yes if you don't trust ~/.ssh/known_hosts for
+# HostbasedAuthentication
+#IgnoreUserKnownHosts no
+# Don't read the user's ~/.rhosts and ~/.shosts files
+#IgnoreRhosts yes
+
+# To disable tunneled clear text passwords, change to no here!
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Vamos a modificar temporalmente:
+"#PermitRootLogin prohibit-password"
+Por
+"PermitRootLogin yes"
+
+Y ejecutamos el proceso de guardado:
+Control X para guardar
+Le damos la tecla "y"
+Y aceptar para confirmar el lugar del archivo.
+
+La consola nos tiene que quedar así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+admin@nombredelamaquina:~$ sudo passwd root
+New password:
+Retype new password:
+passwd: password updated successfully
+admin@nombredelamaquina:~$ sudo passwd admin
+New password:
+Retype new password:
+passwd: password updated successfully
+admin@nombredelamaquina:~$ sudo nano /etc/ssh/sshd_config
+admin@nombredelamaquina:~$
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Reiniciamos el servicio de ssh
+sudo service ssh restart
+
+Y escribimos el acceso a root tal cual:
+admin@nombredelamaquina:~$ ssh root@123.456.789.10
+
+The authenticity of host '123.456.789.10 (123.456.789.10)' can't be established.
+ECDSA key fingerprint is SHA256:tP7S3tm3MnNpIRBrN2Z/dyVl+5WowCNNEWWpFwwFAAw.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+
+yes
+
+Warning: Permanently added '123.456.789.10' (ECDSA) to the list of known hosts.
+
+root@123.456.789.10's password:
+
