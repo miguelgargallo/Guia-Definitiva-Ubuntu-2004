@@ -1,0 +1,99 @@
+¿Cómo instalar la interfaz gráfica o tasksel en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ahora instalaremos la parte gráfica del sistema operativo.
+Por si no te habías dado cuenta... la versión solo cuenta con una consola.
+Por lo tanto, ejecutaremos:
+
+apt install tasksel
+
+En un momento dado, nos preguntará si:
+After this operation, 309 kB of additional disk space will be used.
+Do you want to continue? [Y/n]
+
+Respondemos con "Y" y le damos a enter, para esperar a que termine.
+Y
+
+Ejecutamos tasksel escribiendo en la consola:
+tasksel
+
+
+Nos moveremos con las flechas del teclado hacia arriba y hacia abajo.
+Le damos a la barra espaciadora para activar las opciones que queremos:
+Ejemplo de opción no seleccionada:
+  │    [ ] Ubuntu desktop                                                                       │
+Ejemplo de opción seleccionada:
+  │    [*] Ubuntu desktop                                                                       │
+
+
+En mi caso, voy a escoger esta configuración:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Package configuration
+
+  ┌───────────────────────────────────┤ Software selection ├────────────────────────────────────┐
+  │ You can choose to install one or more of the following predefined collections of software.  │
+  │                                                                                             │
+  │ Choose software to install:                                                                 │
+  │                                                                                             │
+  │    [ ] Kubuntu live CD                                                                      │
+  │    [ ] Lubuntu live CD                                                                      │
+  │    [ ] Ubuntu Budgie live CD                                                                │
+  │    [ ] Ubuntu live CD                                                                       │
+  │    [ ] Ubuntu MATE Live CD                                                                  │
+  │    [ ] Ubuntu Studio live DVD                                                               │
+  │    [ ] Xubuntu live CD                                                                      │
+  │    [*] Ubuntu Cloud Image (instance)                                                        │
+  │    [ ] DNS server                                                                           │
+  │    [ ] Kubuntu desktop                                                                      │
+  │    [ ] LAMP server                                                                          │
+  │    [ ] Lubuntu Desktop                                                                      │
+  │    [ ] Mail server                                                                          │
+  │    [ ] PostgreSQL database                                                                  │
+  │    [ ] Print server                                                                         │
+  │    [ ] Samba file server                                                                    │
+  │    [ ] Ubuntu Budgie desktop                                                                │
+  │    [*] Ubuntu desktop                                                                       │
+  │    [ ] Ubuntu desktop default languages                                                     │
+  │    [ ] Ubuntu minimal desktop                                                               │
+  │    [ ] Ubuntu minimal desktop default languages                                             │
+  │    [ ] Ubuntu MATE minimal                                                                  │
+  │    [ ] Ubuntu MATE desktop                                                                  │
+  │    [ ] Audio recording and editing suite                                                    │
+  │    [ ] Ubuntu Studio desktop                                                                │
+  │    [ ] Ubuntu Studio minimal DE installation                                                │
+  │    [ ] Large selection of font packages                                                     │
+  │    [ ] 2D/3D creation and editing suite                                                     │
+  │    [ ] Photograph touchup and editing suite                                                 │
+  │    [ ] Publishing applications                                                              │
+  │    [ ] Video creation and editing suite                                                     │
+  │    [ ] Xubuntu minimal installation                                                         │
+  │    [ ] Xubuntu desktop                                                                      │
+  │    [*] OpenSSH server                                                                       │
+  │    [*] Basic Ubuntu server                                                                  │
+  │                                                                                             │
+  │                                                                                             │
+  │                                           <Ok>                                              │
+  │                                                                                             │
+  └─────────────────────────────────────────────────────────────────────────────────────────────┘
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Le damos al tabulador para seleccionar "<Ok>" y luego a enter para aceptar y ejecutar.
+
+Package configuration
+
+ ┌───────────────────────────────────┤ Installing packages ├────────────────────────────────────┐
+ │ Configuring something                                                                        │
+ │                                                                                              │
+ │                                                                                              │
+ │                                                                                              │
+ │                                              66%                                             │
+ │                                                                                              │
+ └──────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Y nos esperamos. No se toca nada, hasta que acabe.
+
+Reiniciamos
+reboot
