@@ -1770,6 +1770,7 @@ Y entonces ejecutamos sin errores.
 root@server:~# systemctl restart pdns.service
 
 
+
 ¿Como programar las tablas de PowerDNS en nuestro VPS Ubuntu 20.04 LTS?
 
 
