@@ -65,3 +65,5 @@ Configurar Ubuntu 20.04 LTS Handshake spanish guia Rithvik-Vibhu
 ¿Cómo instalar PowerDNS-Admin con Docker en nuestro VPS Ubuntu 20.04 LTS?
 
 ¿Qué pasa si me pide autorización en nuestro VPS Ubuntu 20.04 LTS?
+
+¿Cómo instalar Plesk en nuestro VPS Ubuntu 20.04 LTS?
