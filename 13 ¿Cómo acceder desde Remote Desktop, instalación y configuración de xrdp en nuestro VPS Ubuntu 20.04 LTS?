@@ -1,0 +1,55 @@
+¿Cómo acceder desde Remote Desktop, instalación y configuración de xrdp en nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Una vez instalado, debemos seguir instalando la interfaz para poder entrar desde herramientas como sería remote desktop.
+Para ello añadiremos el puerto 3389
+
+Comenzamos a escribir:
+ufw allow 3389
+
+La consola nos devuelve esta respuesta que deseamos:
+Rules updated
+Rules updated (v6)
+
+Y actualizamos y upgradeamos.
+
+apt-get update && sudo apt-get upgrade
+
+Instalamos xrdp
+
+apt install xrdp
+
+After this operation, 3212 kB of additional disk space will be used.
+Do you want to continue? [Y/n]
+
+Respondemos "y" y le damos a enter.
+Y
+
+Esperamos a que termine.
+
+Visualizamos el estado de xrdp con el siguiente comando:
+
+systemctl status xrdp
+
+Es muy importante visualizar un piloto o punto verde al lado del servicio:
+● xrdp.service - xrdp daemon
+     Loaded: loaded (/lib/systemd/system/xrdp.service; enabled; vendor preset: enabled)
+     Active: active (running)
+
+Ese punto negro de la guía a de estar en verde.
+Si es así, podemos continuar.
+
+Añadimos un usuario en el grupo ss-cert para xrdp:
+
+adduser xrdp ssl-cert
+
+La consola nos devuelve esta respuesta que deseamos:
+
+Adding user `xrdp' to group `ssl-cert' ...
+Adding user xrdp to group ssl-cert
+Done.
+
+Reiniciamos el proceso xrdp:
+
+systemctl restart xrdp
