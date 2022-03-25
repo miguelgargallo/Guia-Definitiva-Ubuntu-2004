@@ -1,0 +1,37 @@
+¿Cómo cómo apunto mi TLDs de Handshake a nuestro VPS Ubuntu 20.04 LTS?
+
+
+
+Ejecutamos:
+
+sudo pdnsutil show-zone cil
+
+
+
+Con todo esto la consola quedará tal que así:
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+next@server:/etc/powerdns/pdns.d$ sudo pdnsutil show-zone cil
+Mar 22 18:01:23 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+This is a Native zone
+Metadata items: None
+Zone has NSEC semantics
+keys:
+ID = 1 (CSK), flags = 257, tag = 8696, algo = 13, bits = 256      Active         Published  ( ECDSAP256SHA256 )
+CSK DNSKEY = cil. IN DNSKEY 257 3 13 OoL4Nuox18AMrdsqXjDJeOq05xOotlTiURe4TMJDM7aL6GgE0ALaKDFz6YKS9HWlP9365p4lRb1zEa79FxoxhA== ; ( ECDSAP256SHA256 )
+DS = cil. IN DS 8696 13 2 4b4d7e9742c6526ebd2460330a8841de0283470fb48ed4c307e706544096f09d ; ( SHA256 digest )
+DS = cil. IN DS 8696 13 4 94402dc0a63495433a97db4e3a7c319d7af6f0bcb86202cfe4eb584b4e85b68789a07d120117aa56d491aeb9ae82e5f3 ; ( SHA-384 digest )
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Nos quedamos con el "13 2"
+
+DS = cil. IN DS 8696 13 2 4b4d7e9742c6526ebd2460330a8841de0283470fb48ed4c307e706544096f09d ; ( SHA256 digest )
+
+Añadimos a Bob Wallet
+
+NS ns1.cil
+GLUE ns1.cil. 123.456.789.10
+DS 8696 13 2 4b4d7e9742c6526ebd2460330a8841de0283470fb48ed4c307e706544096f09d
+
+Y nos esperamos, podremos comprobar que todo va bien, ejecutando:
+
+dig @123.456.789.10 cil TXT +dnssec
