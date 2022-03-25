@@ -1,0 +1,67 @@
+¿Cómo configuro el webserver en nuestro VPS Ubuntu 20.04 LTS?
+
+
+ejecutamos:
+
+sudo apt install nginx -y
+
+Y esperamos a que se intale todo.
+
+Ejecutamos este código para poder crear una carpeta para la web.
+
+sudo mkdir -p /var/www/cil
+
+Si es correcto, la consola no devolverá nada.
+
+Añadimos contenido básico a la web:
+
+sudo sh -c "echo '<html><body><h1>Web de Handshake</h1></html>' > /var/www/cil/index.html"
+
+Si es correcto, la consola no devolverá nada.
+
+Creamos un archivo y pegamos el texto de a continuación:
+
+sudo nano /etc/nginx/sites-available/cil
+
+server {
+  listen 80;
+  listen [::]:80;
+  root /var/www/cil;
+  index index.html;
+  server_name cil;
+  location / {
+    try_files $uri $uri/ =404;
+  }
+}
+
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+Lo activamos ejecutando el siguiente código:
+
+sudo ln -s /etc/nginx/sites-available/cil /etc/nginx/sites-enabled/cil
+
+Si es correcto, la consola no devolverá nada.
+
+Reiniciamos nginx
+
+sudo systemctl restart nginx
+
+Si es correcto, la consola no devolverá nada.
+
+Comprobamos el estado del mismo nginx:
+
+sudo systemctl status nginx
+
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2022-03-22 18:13:16 CET; 10s ago
+
+Es muy importante visualizar un piloto o punto verde al lado del servicio:
+
+Añadimos un record con la ip
+
+sudo -u pdns pdnsutil add-record cil. @ A 207.180.198.58
+
+Mar 22 18:14:39 [bindbackend] Done parsing domains, 0 rejected, 0 new, 0 removed
+New rrset:
+cil. 3600 IN A 123.456.789.10
