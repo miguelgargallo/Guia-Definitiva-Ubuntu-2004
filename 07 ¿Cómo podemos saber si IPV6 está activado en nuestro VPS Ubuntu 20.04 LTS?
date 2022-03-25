@@ -1,0 +1,52 @@
+¿Cómo podemos saber si IPV6 está activado en nuestro VPS Ubuntu 20.04 LTS?
+
+Ejecutamos
+
+sudo nano /etc/default/ufw
+
+Y nos saldrá un archivo tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# /etc/default/ufw
+#
+
+# Set to yes to apply rules to support IPv6 (no means only IPv6 on loopback
+# accepted). You will need to 'disable' and then 'enable' the firewall for
+# the changes to take affect.
+IPV6=yes
+
+# Mas ajustes abajo pero como no se ha de tocar nada por el momento, no se muestran...
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Y comprobamos en el archivo ufw de la carpeta default en el directorio etc, el apartado de IPV6 esté activado y con la palabra "yes".
+IPV6=yes
+
+Está activado y con "yes".
+
+Sino lo está, lo ponemos
+Y ejecutamos el proceso de guardado ya mencionado al principio de la guía.
+
+A estas alturas, la consola nos quedaría tal que así:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+root@nombredelamaquina:~# apt-get update && sudo apt-get upgrade
+Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Hit:2 http://archive.ubuntu.com/ubuntu focal InRelease
+Get:3 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+Get:4 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+Fetched 336 kB in 1s (459 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Calculating upgrade... Done
+The following package was automatically installed and is no longer required:
+  libfwupdplugin1
+Use 'sudo apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+root@nombredelamaquina:~# nano /etc/hostname
+root@nombredelamaquina:~# nano /etc/hosts
+root@nombredelamaquina:~# nano /etc/hosts
+root@nombredelamaquina:~# sudo nano /etc/default/ufw
+root@nombredelamaquina:~# nano /etc/cloud/templates/hosts.debian.tmpl
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
