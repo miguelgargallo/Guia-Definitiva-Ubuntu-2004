@@ -14,6 +14,8 @@ Cómo configurar tu VPS con Ubuntu 20.04 LTS;
 
 ¿Cómo configurar correctamente los puertos de forma segura de nuestro VPS Ubuntu 20.04 LTS?
 
+¿Cómo configurar con Cloudflare y sus puertos de forma segura de nuestro VPS Ubuntu 20.04 LTS?
+
 ¿Cómo cambiar el puerto de acceso ssh para protegernos de ataques a nuestro VPS Ubuntu 20.04 LTS?
 
 ¿Cómo acceder a través del nuevo puerto en nuestro VPS Ubuntu 20.04 LTS?
