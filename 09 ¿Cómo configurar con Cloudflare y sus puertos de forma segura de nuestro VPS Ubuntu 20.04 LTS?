@@ -140,3 +140,14 @@ Status: active
 [ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+vamos a sudo nano /etc/ssh/sshd_config
+y nos aseguramos que el port:20
+es ahora 2038
+
+Reiniciamos el proceso
+sudo service ssh restart
+
+Reiniciamos
+reboot
