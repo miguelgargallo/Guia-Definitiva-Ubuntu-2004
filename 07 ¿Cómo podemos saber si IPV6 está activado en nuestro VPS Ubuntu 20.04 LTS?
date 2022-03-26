@@ -50,3 +50,6 @@ root@nombredelamaquina:~# nano /etc/hosts
 root@nombredelamaquina:~# sudo nano /etc/default/ufw
 root@nombredelamaquina:~# nano /etc/cloud/templates/hosts.debian.tmpl
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Ahora vamos a la guía 8 si queremos poner un puerto random de acceso
+Ahora vamos a la guía 8 si queremos poner un puerto random de acceso Cloudlfare
