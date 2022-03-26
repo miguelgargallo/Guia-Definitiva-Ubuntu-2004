@@ -1,6 +1,6 @@
 ¿Cómo configurar con Cloudflare y sus puertos de forma segura de nuestro VPS Ubuntu 20.04 LTS?
 
-
+ 
 
 Ahora configuraremos los puertos, para tener las entradas y salidas óptimas.
 Segun speedguide net, no hay nada asignado entre los puertos 2038-25575, lo que pretendemos es evitar ataques automáticos en nuestro servidor, es por esto que cambiaremo el puerto 22 y 22/tcp por un puerto aleatorio, para poder acceder por ssh de forma mas segura y así reducir el número de probabilidades de ser atacado.
@@ -140,14 +140,3 @@ Status: active
 [ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-vamos a sudo nano /etc/ssh/sshd_config
-y nos aseguramos que el port:20
-es ahora 2038
-
-Reiniciamos el proceso
-sudo service ssh restart
-
-Reiniciamos
-reboot
