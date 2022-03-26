@@ -1,5 +1,5 @@
 ¿Cómo podemos saber si IPV6 está activado en nuestro VPS Ubuntu 20.04 LTS?
-
+ 
 Ejecutamos
 
 sudo nano /etc/default/ufw
