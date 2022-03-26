@@ -1,6 +1,6 @@
 ¿Cómo cambiar el puerto de acceso ssh para protegernos de ataques a nuestro VPS Ubuntu 20.04 LTS?
 
-
+ 
 
 Ahora vamos al archivo de configuración de sshd, para así modificar el puerto de acceso:
 nano /etc/ssh/sshd_config
