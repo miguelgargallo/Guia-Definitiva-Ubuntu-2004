@@ -9,6 +9,8 @@ Lo activamos (quitando la hastag o almoadilla)
 Y cambiamos el 22 por 25472
 
 Port 25472
+o
+Port 2038 si hemos puesto el puerto de cloudflare!
 
 Que es en definitva un puerto que hemos abierto antes.
 
