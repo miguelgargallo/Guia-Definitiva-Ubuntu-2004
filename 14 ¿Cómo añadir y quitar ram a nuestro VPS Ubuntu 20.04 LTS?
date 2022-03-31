@@ -1,4 +1,4 @@
-¿Cómo añadir mas ram a nuestro VPS Ubuntu 20.04 LTS?
+¿Cómo añadir y quitar ram a nuestro VPS Ubuntu 20.04 LTS?
 
 
 
@@ -41,3 +41,18 @@ Swap:          15Gi          0B        15Gi
 
 Reiniciamos
 reboot
+
+
+Si nos equivocamos, no pasa nada, atención:
+
+Ejecutamos:
+swapoff -v /ramr
+sudo nano /etc/fstab
+Borramos la linea que hemos escrito
+/ramr swap swap defaults 0 0
+
+Y ejecutamos:
+rm -f /swapfile
+
+Reiniciamos
+Reboot
