@@ -1,0 +1,2 @@
+Simplemente pon esto
+sudo usermod -aG sudo newuser
