@@ -160,3 +160,78 @@ sudo systemctl status pdns
      Active: active (running) since Tue 2022-03-22 17:55:36 CET; 26s ago
 
 Nos aseguramos de que tenga	 un piloto verde.
+
+
+
+
+
+Aquí abajo dejo una chuleta para comandos:
+
+PowerDNS pdnsutil cheat sheet
+
+PowerDNS logo
+
+This is an extremely simple tutorial on how to enter data into the PowerDNS Authoritative Server using the command line "pdnsutil" tool. The guide is written in the "walk through" format: create zone - add data - update serial.
+
+New Tutorial Now Available PowerDNS export from MySQL to csv using command line - 8 Feb 2022
+CREATE ZONE
+
+pdnsutil create-zone example.com
+
+ADD DATA TO ZONE // Let's start by adding the root A-record and AAAA for IPv6 (makarainen.net)
+
+pdnsutil add-record example.com @ A 192.168.1.2
+pdnsutil add-record example.com @ AAAA 2a01:4f9:c010:30f4::1
+
+ADD DATA TO ZONE // adding a subdomain (www)
+
+pdnsutil add-record example.com www A 192.168.1.2
+
+ADD DATA TO ZONE // every domain needs name servers
+
+pdnsutil add-record example.com @ NS ns1.example.com
+
+ADD DATA TO ZONE
+
+pdnsutil add-record example.com @ MX "10 example.com"
+
+pdnsutil add-record example.com 3600 TXT "google-site-verification=example-id"
+
+MANAGE ZONES // check the information provided
+
+pdnsutil list-zone example.com
+
+MANAGE ZONES // modify the zone (if changes do not miss update serial -> UPDATE SERIAL)
+
+pdnsutil edit-zone example.com
+
+MANAGE ZONES
+
+pdnsutil check-all-zones
+
+pdnsutil show-zone example.com
+
+DELETE A SPECIFIC ZONE
+
+pdnsutil delete-zone example.com
+
+UPDATE SERIAL
+
+pdnsutil increase-serial example.com
+
+UPDATE THE CONNECTED DNS SERVERS
+
+pdns_control notify example.com
+
+START THE POWERDNS SERVER IN UBUNTU
+
+service pdns start
+
+Questions
+
+Where do I enter a SOA-record? - No, you don't have to enter it. PowerDNS generates it automatically when you update the serial. However, specify initialization values in the /etc/powerdns/pdns.conf file.
+Noteworthy deal
+
+Domainparkki may be able to help if you need plain name server services for hobby/low volume use. Only 5 euros +VAT per zone per year. One zone = one domain, including 20 records per zone and 1 billion queries per month (excess traffic is billed separately). Open the link above and check it out. Inquiries by email hello@domainparkki.com.
+
+// viHannes, 12 Feb 2022 in Helsinki, Finland
