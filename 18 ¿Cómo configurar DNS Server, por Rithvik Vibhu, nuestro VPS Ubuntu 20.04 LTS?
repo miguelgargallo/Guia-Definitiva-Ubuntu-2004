@@ -1,7 +1,7 @@
 ¿Cómo configurar DNS Server, por Rithvik Vibhu, nuestro VPS Ubuntu 20.04 LTS?
 
 Logeamos con el usuario nuevo, y actuamos siempre con "sudo"
-$ ssh -p 2083 next@207.180.198.58
+$ ssh -p 2083 next@ip
 
 Primero comprobamos la actividad del puerto 53, escrbiendo este comando.
 
