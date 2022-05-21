@@ -3,8 +3,8 @@
  
 
 Ahora configuraremos los puertos, para tener las entradas y salidas óptimas.
-Segun speedguide net, no hay nada asignado entre los puertos 2038-25575, lo que pretendemos es evitar ataques automáticos en nuestro servidor, es por esto que cambiaremo el puerto 22 y 22/tcp por un puerto aleatorio, para poder acceder por ssh de forma mas segura y así reducir el número de probabilidades de ser atacado.
-Escogeremos un puerto aleatorio entre en el rango 2038-25575, por ejemplo: 2038, evitad a toda costa cojer el puerto 25565, porque si queréis montar un servidor de Minecraft, es el que usa MySQL Standard port Minecraft Dedicated Server (IANA official. (Speed Guide, Inc, 2009)
+Segun speedguide net, no hay nada asignado entre los puertos XXXXX-25575, lo que pretendemos es evitar ataques automáticos en nuestro servidor, es por esto que cambiaremo el puerto 22 y 22/tcp por un puerto aleatorio, para poder acceder por ssh de forma mas segura y así reducir el número de probabilidades de ser atacado.
+Escogeremos un puerto aleatorio entre en el rango XXXXX-25575, por ejemplo: XXXXX, evitad a toda costa cojer el puerto 25565, porque si queréis montar un servidor de Minecraft, es el que usa MySQL Standard port Minecraft Dedicated Server (IANA official. (Speed Guide, Inc, 2009)
 Aquí abriremos un puerto que es para configurar nuestra TLD de Handshake a través de la guía de La Guía HNS + PowerDNS + Nginx + DANE - Introduction de htools.work de Rithvik Vibhu en español. (Vibhu, 2021)
 Así que si estás aquí solo para instalar Ubuntu 20.04 LTS, no abras el puerto 53, te darás cuenta de que es cuando lleguemos, no te preocupes.
 
@@ -15,7 +15,7 @@ La consola nos devuelve esta respuesta que deseamos:
 Rules updated
 Rules updated (v6)
 
-ufw allow 2038
+ufw allow XXXXX
 
 La consola nos devuelve esta respuesta que deseamos:
 Rules updated
@@ -56,12 +56,12 @@ Status: active
      To                         Action      From
      --                         ------      ----
 [ 1] 22/tcp                     ALLOW IN    Anywhere
-[ 2] 2038                       ALLOW IN    Anywhere
+[ 2] XXXXX                       ALLOW IN    Anywhere
 [ 3] 53                         ALLOW IN    Anywhere
 [ 4] 80/tcp                     ALLOW IN    Anywhere
 [ 5] 443/tcp                    ALLOW IN    Anywhere
 [ 6] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
-[ 7] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 7] XXXXX (v6)                  ALLOW IN    Anywhere (v6)
 [ 8] 53 (v6)                    ALLOW IN    Anywhere (v6)
 [ 9] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [10] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
@@ -94,12 +94,12 @@ Status: active
 
      To                         Action      From
      --                         ------      ----
-[ 1] 2038                       ALLOW IN    Anywhere
+[ 1] XXXXX                       ALLOW IN    Anywhere
 [ 2] 53                         ALLOW IN    Anywhere
 [ 3] 80/tcp                     ALLOW IN    Anywhere
 [ 4] 443/tcp                    ALLOW IN    Anywhere
 [ 5] 22/tcp (v6)                ALLOW IN    Anywhere (v6)
-[ 6] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 6] XXXXX (v6)                  ALLOW IN    Anywhere (v6)
 [ 7] 53 (v6)                    ALLOW IN    Anywhere (v6)
 [ 8] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [ 9] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
@@ -131,11 +131,11 @@ Status: active
 
      To                         Action      From
      --                         ------      ----
-[ 1] 2038                       ALLOW IN    Anywhere
+[ 1] XXXXX                       ALLOW IN    Anywhere
 [ 2] 53                         ALLOW IN    Anywhere
 [ 3] 80/tcp                     ALLOW IN    Anywhere
 [ 4] 443/tcp                    ALLOW IN    Anywhere
-[ 5] 2038 (v6)                  ALLOW IN    Anywhere (v6)
+[ 5] XXXXX (v6)                  ALLOW IN    Anywhere (v6)
 [ 6] 53 (v6)                    ALLOW IN    Anywhere (v6)
 [ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
