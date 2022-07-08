@@ -2,7 +2,7 @@
 
 Ejecutamos:
 
-sudo -id
+sudo -i
 
 Esto hará que accedamos a root.
 
