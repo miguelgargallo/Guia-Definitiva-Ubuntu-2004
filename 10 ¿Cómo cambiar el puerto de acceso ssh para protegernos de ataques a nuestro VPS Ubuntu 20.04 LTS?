@@ -126,9 +126,10 @@ Status: active
 [ 7] 80/tcp (v6)                ALLOW IN    Anywhere (v6)
 [ 8] 443/tcp (v6)               ALLOW IN    Anywhere (v6)
 
-root@nombredelamaquina:~# nano /etc/ssh/sshd_config
-root@nombredelamaquina:~# service ssh restart
-root@nombredelamaquina:~# reboot
+nano /etc/ssh/sshd_config
+service ssh restart
+reboot
+
 root@nombredelamaquina:~# Connection to 123.456.789.10 closed by remote host.
 Connection to 123.456.789.10 closed.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
