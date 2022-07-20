@@ -1,5 +1,10 @@
 ¿Cómo cambiar el hostname de nuestro VPS Ubuntu 20.04 LTS?
  
+Esencialmente modificaremos el contenido de 3 archivos:
+nano /etc/hostname
+nano /etc/hosts
+nano /etc/cloud/templates/hosts.debian.tmpl
+
 
 
 Cambiar el nombre del host
