@@ -1,0 +1,41 @@
+¿Cómo instalar bun de forma segura de nuestro VPS Ubuntu 20.04 LTS?
+
+¿Qué es bun: Bun viene de: https://github.com/oven-sh/bun
+Es un nuevo:
+  Tiempo de ejecución de JavaScript con APIs web como fetch, WebSocket, y varias más incorporadas. bun incorpora JavaScriptCore, que tiende a ser más rápido y más eficiente en cuanto a memoria que otros motores más populares como V8 (aunque es más difícil de incorporar)
+  Transpilador JavaScript/TypeScript/JSX
+  Paquete de JavaScript y CSS
+  Ejecutor de tareas para scripts package.json
+  Gestor de paquetes compatible con npm
+
+Todo en una herramienta rápida y fácil de usar. En lugar de 1.000 node_modules para el desarrollo, sólo necesitas bun.
+Bun es un software experimental. Únete al Discord de bun para obtener ayuda y echar un vistazo a las cosas que aún no funcionan.
+Actualmente, el enfoque principal de bun es bun.js: el tiempo de ejecución de JavaScript de bun.
+
+
+Instalar bun nativamente en macOS x64 y Silicon, Linux x64, Windows Subsystem para Linux:
+Ejecutamos:
+
+curl -fsSL https://bun.sh/install | bash
+
+Si deseamos Docker, Linux x64
+Ejecutamos:
+
+docker pull jarredsumner/bun:edge
+docker run --rm --init --ulimit memlock=-1:-1 jarredsumner/bun:edge
+
+
+bun.js prefiere la compatibilidad con las APIs de la web en lugar de diseñar nuevas APIs cuando es posible. bun.js también implementa algunas APIs de Node.js.
+
+  El soporte de TypeScript y JSX está incorporado, impulsado por el transpilador de JavaScript de Bun.
+  Los módulos ESM y CommonJS son compatibles (internamente, bun.js utiliza ESM).
+  Muchos paquetes npm "simplemente funcionan" con bun.js (cuando usan pocas/ninguna API de node).
+  Las "rutas" de tsconfig.json están soportadas de forma nativa, junto con las "exportaciones" en package.json.
+  fs, path y process de Node están parcialmente implementados.
+  Las APIs web como fetch, Response, URL y otras están incorporadas.
+  HTMLRewriter facilita la transformación de HTML en bun.js.
+  Se inicia 4 veces más rápido que Node (pruébalo tú mismo).
+  Los archivos .env se cargan automáticamente en process.env y Bun.env.
+  nivel superior de espera.
+  
+Mas info a su autor: https://github.com/oven-sh/bun
