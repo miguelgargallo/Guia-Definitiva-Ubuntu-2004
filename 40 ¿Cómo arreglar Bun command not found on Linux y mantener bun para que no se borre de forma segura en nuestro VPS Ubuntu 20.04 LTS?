@@ -1,0 +1,41 @@
+¿Cómo arreglar Bun command not found on Linux y mantener bun para que no se borre de forma segura en nuestro VPS Ubuntu 20.04 LTS?
+
+Después de una instalación limpia de bun en Linux, el comando bun no será reconocido por la línea de comandos, porque bun no fue añadido automáticamente a PATH
+
+Probablemente devolverá un mensaje como el siguiente,
+
+bun --version
+
+Command 'bun' not found, did you mean:
+
+  command 'ben' from deb ben (0.9.0ubuntu2)
+  command 'bus' from deb atm-tools (1:2.5.1-4)
+  command 'zun' from deb python3-zunclient (4.0.0-0ubuntu1)
+
+Try: sudo apt install <deb name>
+
+Puede solucionarlo con las siguientes acciones:
+
+Abrimos este archivo con el editor:
+sudo nano ~/.bashrc
+
+Añadimos estas dos lineas al final de todo:
+Aviso: reemplaza: {USERNAME} por tu nombre de usuario.
+Ejemplo: si tu nombre de usuario es: "NombreDeUsuario":
+BUN_INSTALL="/home/NombreDeUsuario/.bun"
+PATH="$BUN_INSTALL/bin:$PATH"
+
+Ejecuta entonces el código siguiente:
+BUN_INSTALL="/home/{USERNAME}/.bun"
+PATH="$BUN_INSTALL/bin:$PATH"
+
+Para ver que la instalación es correcta:
+bun --version
+
+Reiniciamos nuestro VPS:
+Sudo reboot
+
+Y entramos para ejecutar:
+bun --version
+
+Si te sale la versión, está todo correcto y así se solucionaria el error!
