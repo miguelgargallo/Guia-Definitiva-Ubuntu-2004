@@ -1,0 +1,13 @@
+¿Cómo instalar yarn de forma segura de nuestro VPS Ubuntu 20.04 LTS?
+
+Aviso, si vienes de instalar yarn y te sale este error al ejecutar "yarn", "yarn install" en algún proyecto:
+user@host:~/projx/app$ yarn
+00h00m00s 0/0: : ERROR: There are no scenarios; must have at least one.
+Es porque desafortunadamente, por error, la consola te ha pedido instalar "yarn" a través de cmdtest con "sudo apt intall cmdtest", debes de ejecutar entonces "sudo apt remove cmdtest" para desinstalarlo.
+
+Una vez desinstalado si es el caso, procemos a instalar estos 4 comandos uno detrás de otro.
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+sudo apt install yarn
