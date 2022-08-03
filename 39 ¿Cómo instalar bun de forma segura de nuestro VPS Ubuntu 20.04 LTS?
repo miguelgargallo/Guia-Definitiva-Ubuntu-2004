@@ -18,6 +18,12 @@ Ejecutamos:
 
 curl -fsSL https://bun.sh/install | bash
 
+Si nos salta el error en consola:
+error: unzip is required to install bun (see: https://github.com/oven-sh/bun#unzip-is-required)
+
+Ejecutamos el instalador de unzip para bun:
+sudo apt install unzip
+
 Si deseamos Docker, Linux x64
 Ejecutamos:
 
