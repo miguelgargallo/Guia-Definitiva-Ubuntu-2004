@@ -15,7 +15,7 @@ sudo mkswap /rammg  && sudo swapon /rammg
 
 La consola responde:
 Setting up swapspace version 1, size = 16 GiB (17179865088 bytes)
-no label, UUID=abb4d923-02b8-4f59-a391-d0b82bbed1aa
+no label, UUID=SOMETHING-HERE-WRITTER-BY-MACHINE
 
 Editamos el archivo fstab para añadir la ram.
 sudo nano /etc/fstab
