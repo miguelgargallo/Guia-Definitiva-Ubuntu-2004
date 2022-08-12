@@ -6,7 +6,7 @@ Ahora instalaremos la parte gráfica del sistema operativo.
 Por si no te habías dado cuenta... la versión solo cuenta con una consola.
 Por lo tanto, ejecutaremos:
 
-apt install tasksel
+sudo apt install tasksel
 
 En un momento dado, nos preguntará si:
 After this operation, 309 kB of additional disk space will be used.
@@ -16,7 +16,7 @@ Respondemos con "Y" y le damos a enter, para esperar a que termine.
 Y
 
 Ejecutamos tasksel escribiendo en la consola:
-tasksel
+sudo tasksel
 
 
 Nos moveremos con las flechas del teclado hacia arriba y hacia abajo.
