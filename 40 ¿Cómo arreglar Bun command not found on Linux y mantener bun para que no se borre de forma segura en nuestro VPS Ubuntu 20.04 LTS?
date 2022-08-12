@@ -2,7 +2,7 @@
 
 Después de una instalación limpia de bun en Linux, el comando bun no será reconocido por la línea de comandos, porque bun no fue añadido automáticamente a PATH
 
-Probablemente devolverá un mensaje como el siguiente,
+Probablemente devolverá un mensaje como el siguiente, para obtener la versión:
 
 bun --version
 
