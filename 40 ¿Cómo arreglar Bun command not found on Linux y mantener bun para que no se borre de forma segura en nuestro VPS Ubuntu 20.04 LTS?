@@ -33,7 +33,7 @@ Para ver que la instalación es correcta:
 bun --version
 
 Reiniciamos nuestro VPS:
-Sudo reboot
+sudo reboot
 
 Y entramos para ejecutar:
 bun --version
