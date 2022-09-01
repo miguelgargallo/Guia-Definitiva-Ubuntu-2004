@@ -25,7 +25,7 @@ Ejemplo: si tu nombre de usuario es: "NombreDeUsuario":
 BUN_INSTALL="/home/NombreDeUsuario/.bun"
 PATH="$BUN_INSTALL/bin:$PATH"
 
-Ejecuta entonces el código siguiente:
+Se escribe lo siguiente que se ejecutará entonces:
 BUN_INSTALL="/home/{USERNAME}/.bun"
 PATH="$BUN_INSTALL/bin:$PATH"
 
