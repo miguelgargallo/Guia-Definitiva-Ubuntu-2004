@@ -1,0 +1,10 @@
+41 ¿Cómo instalar cualquier version de Node de forma segura en nuestro VPS Ubuntu 20.04 LTS?
+
+Ejecuta un comando tras otro para obtener Node 16.17.0
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm list-remote
+nvm install v16.17.0
+nvm list
+nvm use v16.17.0
