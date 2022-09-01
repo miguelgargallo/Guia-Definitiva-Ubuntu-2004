@@ -4,7 +4,7 @@
 
 Ejecutamos:
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v2.10.2/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 
 La consola nos respodnerá:
 
@@ -17,14 +17,17 @@ La consola nos respodnerá:
 
 Ejecutamos:
 
-sudo chmod +x /usr/local/bin/docker-compose
+chmod +x ~/.docker/cli-plugins/docker-compose
 
 Si es correcto, la consola no devolverá nada.
 
 Comprobamos la versión:
 
-docker-compose --version
+docker compose version
 
 La consola respodnerá:
 
 docker-compose version 1.29.2, build 5becea4c
+
+
+source: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04 
