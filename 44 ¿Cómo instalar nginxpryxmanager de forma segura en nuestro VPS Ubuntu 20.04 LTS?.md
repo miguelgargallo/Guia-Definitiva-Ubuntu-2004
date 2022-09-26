@@ -2,8 +2,16 @@
 
 Paso 1, creamos carpetas y vamos a ellas desde root:
 
+Paso 1 Primer comando
+
     cd /home
+
+Paso 1 Segundo comando
+
     mkdir docker && cd docker
+
+Paso 1 Tercer comando
+
     mkdir nginxproxymanager && cd nginxproxymanager
 
 Paso 2, creamos el archivo docker-compose.yml
