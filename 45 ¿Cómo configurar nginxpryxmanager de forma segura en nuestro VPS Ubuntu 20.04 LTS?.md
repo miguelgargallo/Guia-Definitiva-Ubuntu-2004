@@ -10,3 +10,6 @@ Contraseña:
 
     chageme
 
+Paso 2, nos pedirá cambiar los datos por defecto.
+
+![nginxpryxmanager-first-login](https://user-images.githubusercontent.com/5947268/192282201-20c5efb7-c364-4770-9bf9-32d22d433832.png)
