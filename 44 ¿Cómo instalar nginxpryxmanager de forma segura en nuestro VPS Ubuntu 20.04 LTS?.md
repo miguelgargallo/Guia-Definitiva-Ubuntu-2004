@@ -59,5 +59,6 @@ Paso 5, esperar a que salga "done" de color verde.
 Paso 6, ir al link
 
 Ir a la dirección, e ingresar en el puerto correspondiente.
+- 123.456.78.9:81
 
 ![nginxproxymanager](https://user-images.githubusercontent.com/5947268/192281435-0509b96a-1759-4f60-9568-7d14022f3582.png)
