@@ -1,6 +1,9 @@
 ¿Cómo instalar Docker Compose en nuestro VPS Ubuntu 20.04 LTS?
 
 
+Creamos el directorio:
+
+mkdir -p ~/.docker/cli-plugins/
 
 Ejecutamos:
 
