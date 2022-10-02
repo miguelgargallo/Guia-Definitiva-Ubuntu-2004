@@ -30,7 +30,7 @@ nano /etc/hosts
 Y nos saldrá un archivo tal que así:
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  GNU nano 4.8                                /etc/hosts
+  GNU nano 4.8            NLDW1-2-27-10                    /etc/hosts
 127.0.1.1 nombredelamaquina.webvpscontratado.com nombredelamaquina
 127.0.0.1 localhost
 
