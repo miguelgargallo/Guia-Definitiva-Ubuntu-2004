@@ -30,6 +30,6 @@ docker compose version
 
 La consola respodnerá:
 
-Docker Compose version v2.10.2
+Docker Compose version v2.20.2
 
 source: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04 
