@@ -7,7 +7,7 @@ mkdir -p ~/.docker/cli-plugins/
 
 Ejecutamos:
 
-curl -SL https://github.com/docker/compose/releases/download/v2.10.2/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 
 La consola nos respodnerá:
 
