@@ -9,7 +9,7 @@ Ejecutamos:
 
 curl -SL https://github.com/docker/compose/releases/download/v2.21.0/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
 
-La consola nos respodnerá:
+La consola nos respodnerá: 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
