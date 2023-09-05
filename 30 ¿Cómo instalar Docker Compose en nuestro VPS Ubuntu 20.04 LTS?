@@ -14,8 +14,8 @@ La consola nos respodnerá:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100   664  100   664    0     0  13551      0 --:--:-- --:--:-- --:--:-- 13551
-100 12.1M  100 12.1M    0     0  16.5M      0 --:--:-- --:--:-- --:--:-- 23.4M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 56.7M  100 56.7M    0     0  13.2M      0  0:00:04  0:00:04 --:--:-- 14.1M
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Ejecutamos:
@@ -30,6 +30,7 @@ docker compose version
 
 La consola respodnerá:
 
-Docker Compose version v2.20.2
+Docker Compose version v2.21.0
+
 
 source: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-22-04 
